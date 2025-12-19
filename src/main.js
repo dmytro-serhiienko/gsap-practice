@@ -1,29 +1,29 @@
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
 // ! gsap.to()
 // to - анімація починається з поточного стану елемента та анімується «до» значень, визначених у анімації.
 // box__1 - таргет (якого обєкту стосується анімація)
 // x: - на скільки відправити
-gsap.to('.box__1', {
-  duration: 2,
-  x: 500,
-  rotation: 360,
-  yoyo: true,
-  repeat: 2,
-});
+// gsap.to('.box__1', {
+//   duration: 2,
+//   x: 500,
+//   rotation: 360,
+//   yoyo: true,
+//   repeat: 2,
+// });
 
-gsap.to('.box__2', {
-  rotation: 360,
-  duration: 2,
-  delay: 1,
-});
+// gsap.to('.box__2', {
+//   rotation: 360,
+//   duration: 2,
+//   delay: 1,
+// });
 
 // ! gsap.from()
 // from - зворотний рух, .to()де анімація починається "від" значень, визначених у твіні , і завершується поточним станом елемента.
 
 // ! gsap.fromTo()
 // fromTo() - Ви визначаєте як початкове , так і кінцеве значення.
-gsap.fromTo('.box__3', { x: 500 });
+// gsap.fromTo('.box__3', { x: 500 });
 
 // ! gsap.set() Миттєво встановлює властивості (без анімації). Це, по суті, твін з нульовою тривалістю .to().
 
@@ -34,3 +34,37 @@ gsap.fromTo('.box__3', { x: 500 });
 //* stagger - Час (у секундах) між початком анімації кожної цілі (якщо вказано кілька цілей)
 //* ease - Контролює швидкість змін під час анімації, наприклад, «особистість» або відчуття руху. За замовчуванням: «power1.out»
 //* onComplete - Функція, яка виконується після завершення анімації
+
+// ? JSAP SCROLL
+
+// ІМПОРТУЄМО СТАРТОВИЙ ПАКЕТ
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// gsap.to('.wrap__1', {
+//   scrollTrigger: {
+//     trigger: '.wrap__1', // Елемент, який запускає анімацію
+//     start: 'top 80%', // Коли верх елемента досягне 80% висоти вікна
+//     end: 'bottom 20%', // Коли низ елемента досягне 20% висоти вікна
+//     scrub: true, // Анімація прив'язана до скролу
+//     markers: true, // Показує маркери для дебагу (видали потім)
+//   },
+//   x: 500,
+//   duration: 2,
+// });
+
+//! Плавна поява при скролі
+document.querySelectorAll('.container > div').forEach(wrap => {
+  gsap.from(wrap, {
+    scrollTrigger: {
+      trigger: wrap,
+      start: 'top 80%',
+      end: 'bottom 15%',
+      toggleActions: 'play none none reverse',
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1,
+  });
+});
