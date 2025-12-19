@@ -1,0 +1,30 @@
+.text__section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+
+  background-color: rgb(8, 0, 36);
+  color: rgb(214, 214, 214);
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: monospace;
+}
+
+.container {
+}
+
+.text__title {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.text__dscr-1 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.text__dscr-2 {
+  font-size: 25px;
+}

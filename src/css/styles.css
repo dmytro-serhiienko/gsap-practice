@@ -10,4 +10,6 @@
 
 /* GSAP styles */
 @import url('./gsap.css');
-@import url('./gsap__scroll.css');
+@import url('./scroll.css');
+@import url('./text.css');
+
